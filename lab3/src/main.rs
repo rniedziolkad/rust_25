@@ -71,7 +71,7 @@ fn main(){
     
     // Typy przechowywane na stosie z automatycznym kopiowaniem (posiadają trait (cechę) Copy):
     // + typy proste
-    // + tablice
+    // + tablice o ustalonym rozmiarze
     // + krotki, jeżeli wszystkie elementy są kopiowalne
     
     // tablica -- niemodyfikowalny rozmiar, jeden typ danych
@@ -92,6 +92,7 @@ fn main(){
     #[allow(unused)]
     let (a, b, c) = tup;
     println!("b = {b}");
+    println!("tup.2 = {}", tup.2);
     
     
     // własność i funkcje -------------------------------------------------------------------
