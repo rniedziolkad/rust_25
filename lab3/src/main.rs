@@ -85,7 +85,6 @@ fn main(){
     }
     
     // krotka -- grupuje wartości różnych typów w jeden obiekt złożony
-    // stały rozmiar, raz ustalony nie może być zmieniony
     let tup: (u8, f64, i32) = (1, 3.1415, 12345);
     println!("tup = {:?}", tup);
     // możemy użyć dopasowywania wzorców, aby zdestrukturyzować wartość krotki
