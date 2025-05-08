@@ -59,7 +59,7 @@ impl Macierz {
 
 fn main() {
     let filled1s = Macierz::new(5, 5, 1.0);
-    println!("{} {}", filled1s.wysokosc == 3, filled1s.szerokosc == 4);
+    println!("{} {}", filled1s.wysokosc == 5, filled1s.szerokosc == 5);
     let zeros = Macierz::zerowa(4, 4);
     println!("{} {}", zeros.wysokosc == 4, zeros.szerokosc == 4);
     let mut identity = Macierz::jednostkowa(5);
