@@ -1,3 +1,6 @@
+#[cfg(test)]
+mod tests;
+
 use std::ops::{Add, Sub, Neg, Mul, Div, AddAssign, SubAssign, MulAssign, DivAssign};
 
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -8,6 +11,9 @@ pub struct Ulamek {
 
 impl Ulamek {
     pub fn new(licznik: i64, mianownik: i64) -> Self {
+        if mianownik == 0 {
+            panic!("Mianownik nie może być 0!");
+        }
         let mut licznik = licznik;
         let mut mianownik = mianownik;
 
@@ -41,6 +47,20 @@ impl Ulamek {
             a = temp;
         }
         a
+    }
+
+    fn from_str(napis: &str) -> Option<Self> {
+        let parts: Vec<&str> = napis.split("/").collect(); 
+        if parts.len() == 1 {
+            let licznik: i64 = parts[0].parse().unwrap();
+            return Some(Self::new(licznik, 1));
+        } else if parts.len() == 2 {
+            let licznik: i64 = parts[0].parse().expect("Niepoprawny licznik!");
+            let mianownik: i64 = parts[1].parse().expect("Niepoprawny mianownik!");
+            return Some(Self::new(licznik, mianownik));
+        }
+
+        panic!("Nieprawidłowy format ułamka!");
     }
 }
 
@@ -124,3 +144,4 @@ impl std::fmt::Display for Ulamek {
         }
     }
 }
+
